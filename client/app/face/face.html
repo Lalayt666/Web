@@ -1,0 +1,38 @@
+<div>
+    <h3>Test Project</h3>
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="#" class="img-circle">
+                <img src="../client/content/image/apple.png">
+            </a>
+        </div>
+        <div class="col-lg-4" ng-controller="faceCtrl as fc">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Ккал</th>
+                        <th>Дата</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="face in fc.faces">
+                        <td><span ng-bind="face.fruit"></span></td>
+                        <td><span ng-bind="face.kkal"></span></td>
+                        <td><span ng-bind="(face.date | date:'dd.MM.yyyy')"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Функции<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Добавить</a></li>
+                    <li><a href="#">Удалить</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
