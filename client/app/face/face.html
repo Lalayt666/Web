@@ -7,22 +7,27 @@
             </a>
         </div>
         <div class="col-lg-4" ng-controller="faceCtrl as fc">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Ккал</th>
-                        <th>Дата</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="face in fc.faces">
-                        <td><span ng-bind="face.fruit"></span></td>
-                        <td><span ng-bind="face.kkal"></span></td>
-                        <td><span ng-bind="(face.date | date:'dd.MM.yyyy')"></span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div ng-repeat="item in fc.items">
+                <div class="row">
+                    <div >
+                        <h1 ng-bind="(item.date | date:dd.MM.yyyy)"></h1></div>
+                    <div >
+                        <p ng-bind="fc.calcK(item, true)"></p>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr ng-repeat="comeMeal in item.comeMeals">
+                            <td><span ng-bind="comeMeal.time "></span></td>
+                            <td><span ng-bind="comeMeal.kkal"></span></td>
+                            <td><span ng-bind="comeMeal.fruit"></span></td>
+                            <td>
+                                <input type="checkbox" ng-model="comeMeal.junkFood" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-lg-4">
             <div class="btn-group" role="group">
